@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Меню{% endblock %}
+
+{% block content %}
+<div class="pb-80">
+    <h1 class="text-7xl font-bold text-center mb-12 mt-12">Меню</h1>
+        <h2 id="dish" class="text-6xl font-semibold text-center mb-10 mt-10">Основні страви</h2>
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {% for dish in dishes %}
+                <div class="bg-gray-900 rounded-lg flex items-start p-8 hover:-translate-y-2 transition transform duration-300 h-[420px]">
+                    <div class="w-1/2 h-[350px] flex-shrink-0">
+                        <img src="{{ dish.image }}" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div class="ml-10 flex-1 flex flex-col h-full">
+                        <h2 class="text-4xl mt-2 mb-2 font-semibold line-clamp-2" style="line-height: 1.3;">{{ dish.name }}</h2>
+                        <p class="text-gray-400 mt-4 text-xl overflow-y-auto flex-grow line-clamp-3">{{ dish.description }}</p>
+                        <div class="mt-4 inline-block px-4 py-2 bg-gray-800/50 rounded-lg">
+                            <p class="text-2xl mb-2 font-bold text-red-400">{{ dish.price }} грн</p>
+                        </div>
+                        <div class="mt-auto w-full pt-4">
+                            <a href="{{ url_for('dish_detail', dish_id=dish.id) }}"
+                               class="block w-full mb-1 bg-violet-500 text-white px-6 py-3 rounded-lg transition duration-300 hover:opacity-80 text-center border-2 border-violet-400">
+                               Детальніше
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        <h2 id="drink" class="text-6xl font-semibold text-center mb-10 mt-10">Напої</h2>
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {% for drink in drinks %}
+                <div class="bg-gray-900 rounded-lg flex items-start p-8 hover:-translate-y-2 transition transform duration-300 h-[420px]">
+                    <div class="w-1/2 h-[350px] flex-shrink-0">
+                        <img src="{{ drink.image }}" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div class="ml-10 flex-1 flex flex-col h-full">
+                        <h2 class="text-4xl mt-2 mb-2 font-semibold line-clamp-2" style="line-height: 1.3;">{{ drink.name }}</h2>
+                        <p class="text-gray-400 mt-4 text-xl overflow-y-auto flex-grow line-clamp-4">{{ drink.description }}</p>
+                        <div class="mt-4 inline-block px-4 py-2 bg-gray-800/50 rounded-lg">
+                            <p class="text-2xl mb-2 font-bold text-red-400">{{ drink.price }} грн</p>
+                        </div>
+                        <div class="mt-auto w-full pt-4">
+                            <a href="{{ url_for('drink_detail', drink_id=drink.id) }}"
+                               class="block w-full mb-1 bg-violet-500 text-white px-6 py-3 rounded-lg transition duration-300 hover:opacity-80 text-center border-2 border-violet-400">
+                               Детальніше
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        <h2 id="dessert" class="text-6xl font-semibold text-center mb-10 mt-10">Десерти</h2>
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {% for dessert in desserts %}
+                <div class="bg-gray-900 rounded-lg flex items-start p-8 hover:-translate-y-2 transition transform duration-300 h-[420px]">
+                    <div class="w-1/2 h-[350px] flex-shrink-0">
+                        <img src="{{ dessert.image }}" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div class="ml-10 flex-1 flex flex-col h-full">
+                        <h2 class="text-4xl mt-2 mb-2 font-semibold line-clamp-2" style="line-height: 1.3;">{{ dessert.name }}</h2>
+                        <p class="text-gray-400 mt-4 text-xl overflow-y-auto flex-grow line-clamp-4">{{ dessert.description }}</p>
+                        <div class="mt-4 inline-block px-4 py-2 bg-gray-800/50 rounded-lg">
+                            <p class="text-2xl mb-2 font-bold text-red-400">{{ dessert.price }} грн</p>
+                        </div>
+                        <div class="mt-auto w-full pt-4">
+                            <a href="{{ url_for('dessert_detail', dessert_id=dessert.id) }}"
+                               class="block w-full mb-1 bg-violet-500 text-white px-6 py-3 rounded-lg transition duration-300 hover:opacity-80 text-center border-2 border-violet-400">
+                               Детальніше
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    {% endblock %}
+</div>

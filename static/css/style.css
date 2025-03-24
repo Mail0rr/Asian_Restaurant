@@ -1,0 +1,61 @@
+.cart-tab, .order-tab {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.cart-tab.active, .order-tab.active {
+    opacity: 1;
+    position: relative;
+}
+
+.cart-tab.active:after, .order-tab.active:after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #84cc16;
+}
+
+.cart-content, .order-content {
+    display: none;
+}
+
+.cart-content.active, .order-content.active {
+    display: block;
+}
+
+/* Pagination buttons */
+#prevPage, #nextPage {
+    transition: opacity 0.3s;
+}
+
+#prevPage:disabled, #nextPage:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#cartItems > div {
+    transition: all 0.3s ease;
+}
+
+#cartItems > div:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+}
+
+.increase-quantity, .decrease-quantity {
+    transition: background-color 0.2s;
+}
+
+.increase-quantity:hover, .decrease-quantity:hover {
+    background-color: #4b5563;
+}
+
+/* Order form focus styles */
+#orderForm input:focus {
+    border-color: #84cc16;
+    box-shadow: 0 0 0 2px rgba(132, 204, 22, 0.2);
+}

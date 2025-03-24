@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+<div class="pb-80 text-center">
+    <h1 class="text-7xl font-bold text-center mb-12 mt-12">Ласкаво просимо до Asian Restaurant</h1>
+
+    <p class="text-2xl text-gray-300 max-w-4xl mx-auto">Світ вишуканої азіатської їжі</p>
+
+    <div class="mt-12 flex justify-center">
+        <a href="/menu"
+           class="inline-block bg-rose-600 text-white px-9 py-6 text-2xl rounded-lg transition duration-300 hover:bg-rose-700">
+            Перейти до меню
+        </a>
+    </div>
+
+    <div class="mt-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        <a href="/menu/#dish" class="bg-gray-900 p-8 rounded-lg text-center hover:-translate-y-2 transition transform duration-300 block">
+            <h2 class="text-4xl font-semibold text-yellow-400">🍣 Страви</h2>
+            <p class="text-gray-400 mt-3 text-xl">Традиційні та сучасні рецепти Азії.</p>
+        </a>
+        <a href="/menu/#drink" class="bg-gray-900 p-8 rounded-lg text-center hover:-translate-y-2 transition transform duration-300 block">
+            <h2 class="text-4xl font-semibold text-yellow-400">🍵 Напої</h2>
+            <p class="text-gray-400 mt-3 text-xl">Освіжаючі чаї та екзотичні коктейлі.</p>
+        </a>
+        <a href="/menu/#dessert" class="bg-gray-900 p-8 rounded-lg text-center hover:-translate-y-2 transition transform duration-300 block">
+            <h2 class="text-4xl font-semibold text-yellow-400">🍰 Десерти</h2>
+            <p class="text-gray-400 mt-3 text-xl">Солодкі східні, і не тільки, ласощі.</p>
+        </a>
+    </div>
+
+    <div class="mt-16">
+        <h2 class="text-4xl font-bold text-center text-yellow-400 mb-8">Популярні опції</h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+
+        {% for dish in dishes %}
+        <div class="bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-lg text-center hover:-translate-y-2 transition transform duration-300 border border-gray-800 shadow-lg">
+            <img src="{{ dish.image }}" alt="{{ dish.name }}" class="w-full h-56 object-cover rounded-md mb-4 shadow-md hover:opacity-90 transition-all">
+            <h3 class="text-4xl font-semibold">{{ dish.name }}</h3>
+            <p class="text-gray-400 mt-3 text-xl">{{ dish.description }}</p>
+            <p class="text-2xl font-bold text-red-400 mt-4 mb-6">{{ dish.price }} грн</p>
+            <a href="/menu/dish/{{ dish.id }}/" class="bg-violet-500 text-white py-3 rounded-lg transition duration-300 hover:bg-violet-600 block w-full shadow-md border-2 border-violet-400">
+                Детальніше
+            </a>
+        </div>
+        {% endfor %}
+
+        {% for drink in drinks %}
+        <div class="bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-lg text-center hover:-translate-y-2 transition transform duration-300 border border-gray-800 shadow-lg">
+            <img src="{{ drink.image }}" alt="{{ drink.name }}" class="w-full h-56 object-cover rounded-md mb-4 shadow-md hover:opacity-90 transition-all">
+            <h3 class="text-4xl font-semibold">{{ drink.name }}</h3>
+            <p class="text-gray-400 mt-3 text-xl">{{ drink.description }}</p>
+            <p class="text-2xl font-bold text-red-400 mt-4 mb-6">{{ drink.price }} грн</p>
+            <a href="/menu/drink/{{ drink.id }}/" class="bg-violet-500 text-white py-3 rounded-lg transition duration-300 hover:bg-violet-600 block w-full shadow-md border-2 border-violet-400">
+                Детальніше
+            </a>
+        </div>
+        {% endfor %}
+
+        {% for dessert in desserts %}
+        <div class="bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-lg text-center hover:-translate-y-2 transition transform duration-300 border border-gray-800 shadow-lg">
+            <img src="{{ dessert.image }}" alt="{{ dessert.name }}" class="w-full h-56 object-cover rounded-md mb-4 shadow-md hover:opacity-90 transition-all">
+            <h3 class="text-4xl font-semibold">{{ dessert.name }}</h3>
+            <p class="text-gray-400 mt-3 text-xl">{{ dessert.description }}</p>
+            <p class="text-2xl font-bold text-red-400 mt-4 mb-6">{{ dessert.price }} грн</p>
+            <a href="/menu/dessert/{{ dessert.id }}/" class="bg-violet-500 text-white py-3 rounded-lg transition duration-300 hover:bg-violet-600 block w-full shadow-md border-2 border-violet-400">
+                Детальніше
+            </a>
+        </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
