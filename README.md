@@ -52,8 +52,7 @@ Alternatively, the project is deployed on a remote host and can be accessed onli
 - `base.html` – Base template for pages  
 
 ## Website Link
-[Visit the Website](#)  
+[Visit the Website]([#](http://116.203.195.165:8743/))  
 
-## License
-This project is licensed under the MIT License.
+
 
