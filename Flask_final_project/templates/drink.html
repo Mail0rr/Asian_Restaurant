@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ drink.name }}{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto bg-gray-900 rounded-lg overflow-hidden flex flex-col md:flex-row items-start p-10 mt-12">
+    <div class="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
+        <div class="w-full h-[500px]">
+            <img src="{{ drink.image }}" class="w-full h-full object-cover rounded-lg">
+        </div>
+    </div>
+    <div class="p-4 md:p-10 flex-1 flex flex-col">
+        <h1 class="text-4xl font-bold">{{ drink.name }}</h1>
+        <p class="text-gray-400 mt-3 text-xl">{{ drink.description }}</p>
+        <div class="mt-5 inline-block px-4 py-2 bg-gray-800/50 rounded-lg">
+          <p class="text-2xl font-bold text-red-400">Ціна: {{ drink.price }} грн</p>
+        </div>
+        <h3 class="text-2xl font-semibold mt-5">Інгредієнти:</h3>
+        <ul class="list-disc list-inside text-gray-300 mt-3 text-lg">
+            {% for ingredient in drink.ingredients.split(', ') %}
+            <li> {{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+
+        <div class="mt-8 flex gap-4 w-full">
+            <a href="#" class="bg-lime-600 text-white px-6 py-3 rounded-lg transition duration-300 hover:opacity-80 flex-1 text-center border-2 border-lime-500">
+                Додати до кошика
+            </a>
+            <a href="javascript:window.history.back()"
+               class="bg-rose-600 text-white px-6 py-3 rounded-lg transition duration-300 hover:opacity-80 flex-1 text-center border-2 border-rose-500">
+                Назад
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
