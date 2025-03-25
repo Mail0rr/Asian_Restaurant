@@ -33,7 +33,8 @@ Asian Restaurant is a restaurant simulation with a fully functional website wher
 1. Clone the repository:  
    ```bash
    git clone https://github.com/Mail0rr/Asian_Restaurant.git
-   cd asian-restaurant
+   cd Asian_Restaurant
+
    ```  
 2. Install dependencies:  
    ```bash
